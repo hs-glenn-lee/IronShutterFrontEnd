@@ -14,7 +14,7 @@ export default {
         if (data.status === 'success') {
           return data.data
         } else {
-          return Promise.reject(data.message)
+          return Promise.reject(new Error(data.message))
         }
       })
   },
@@ -30,7 +30,7 @@ export default {
         if (data.status === 'success') {
           return data.data
         } else {
-          return Promise.reject(data.message)
+          return Promise.reject(new Error(data.message))
         }
       })
   },

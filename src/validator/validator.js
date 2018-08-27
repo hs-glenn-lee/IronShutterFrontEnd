@@ -21,7 +21,7 @@ export default {
           passwordMessage = '비밀번호를 입력해주세요'
         } else if (signUpForm.password.length < 5) {
           passwordMessage = '비멀번호는 5글자 이상 이어야합니다.'
-        } else if (signUpForm.password.length < 30) {
+        } else if (signUpForm.password.length > 30) {
           passwordMessage = '비멀번호는 30자 이하 이어야합니다.'
         } else if (signUpForm.password !== signUpForm.passwordRepeat) {
           passwordMessage = '다시입력한 비밀번호가 일치하지 않습니다.'

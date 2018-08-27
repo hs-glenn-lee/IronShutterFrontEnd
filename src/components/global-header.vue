@@ -2,23 +2,33 @@
   <header class="global-header">
     <div class="flex-con-row"><!-- if not signed-in -->
       <div class="flex-item">
+        <div class="menu-icon psd-hover-cursor-pointer">menu</div>
+      </div>
+      <div class="flex-item">
         <div class="logo">logo</div>
       </div>
       <div class="flex-con">
-        <div @click="goToSignIn" class="header-link">로그인</div>
+        <div @click="goToSignIn" class="header-link psd-hover-cursor-pointer">로그인</div>
       </div>
     </div>
+    <menu-of-global-header></menu-of-global-header>
   </header>
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+import MenuOfGlobalHeaderComp from './menu-of-global-header'
 export default {
   name: 'global-header',
+  components: { 'menu-of-global-header': MenuOfGlobalHeaderComp },
   methods: {
+    ...mapActions(['syncSign']),
     goToSignIn () {
-      console.log('???')
       this.$router.push({ name: 'SignIn' })
     }
+  },
+  created () {
+    this.syncSign()
   }
 }
 </script>

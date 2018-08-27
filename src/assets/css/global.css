@@ -23,3 +23,8 @@ h2 {
 .user-select-none {
   user-select: none;
 }
+
+a:link, a.visited, a:link:active, a:visited:active, a{
+  text-decoration: none;
+  color: #000;
+}

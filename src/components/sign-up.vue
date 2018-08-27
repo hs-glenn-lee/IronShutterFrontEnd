@@ -1,28 +1,32 @@
 <template>
-  <div class="sign-in">
+  <div class="sign-up">
     <div class="flex-con-col">
       <div class="flex-item">
         <h1>계정생성</h1>
       </div>
       <div class="flex-item">
-        <form>
+        <form class="sign-up-form">
           <div class="flex-con-col">
-            <input v-model="username" type="text" placeholder="사용자명">
+            <input v-model="signUpForm.username" type="text" placeholder="사용자명">
           </div>
           <div class="flex-con-col">
-            <input v-model="password" type="password" placeholder="비밀번호">
+            <input v-model="signUpForm.password" type="password" placeholder="비밀번호">
           </div>
           <div class="flex-con-col">
-            <input v-model="passwordRepeat" type="password" placeholder="비밀번호 재입력">
-          </div>
-          <div class="flex-con-col">
-            <button type="button">계정생성</button>
+            <input v-model="signUpForm.passwordRepeat" type="password" placeholder="비밀번호 재입력">
           </div>
         </form>
-
-        <div v-if="errorMessages.length > 0" class="error-messages">
-        </div>
       </div>
+
+      <div v-if="errorMessages.length > 0" class="error-messages flex-item">
+        <div v-for="(item, index) in errorMessages" :key="index">{{item}}</div>
+      </div>
+
+      <div class="flex-con-col">
+        <span>{{isValid}}</span>
+        <button @click="submitSignUpForm" type="button">계정생성</button>
+      </div>
+
       <div class="context-switch"></div>
       <div class="guide">
         <p>이미 계정이 있으세요?</p>
@@ -34,6 +38,7 @@
 
 <script>
 import validator from '../validator/validator'
+import { mapActions } from 'vuex'
 export default {
   name: 'Home',
   data () {
@@ -43,19 +48,27 @@ export default {
         password: '',
         passwordRepeat: ''
       },
-      errorMessages: []
+      errorMessages: [],
+      isValid: false
     }
   },
   methods: {
+    ...mapActions(['signUp']),
     validateSignUpForm () {
-      validator.promisedValidate('validateSignUpForm', {
-        signUpForm: this.signUpForm
-      })
+      validator.promisedValidate('validateSignUpForm', this.signUpForm)
         .then(() => {
-
+          this.isValid = true
+          this.errorMessages = []
         })
         .catch(fail => {
+          this.isValid = false
           this.errorMessages = fail
+        })
+    },
+    submitSignUpForm () {
+      this.signUp(this.signUpForm)
+        .then(data => {
+          console.log(data)
         })
     }
   },
@@ -63,7 +76,12 @@ export default {
 
   },
   watch: {
-
+    signUpForm: {
+      handler: function (from, to) {
+        this.validateSignUpForm()
+      },
+      deep: true
+    }
   }
 }
 

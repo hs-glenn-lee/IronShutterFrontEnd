@@ -13,11 +13,12 @@
             <input v-model="password" type="password" placeholder="비밀번호">
           </div>
           <div class="flex-con-col">
-            <button type="button">로그인</button>
+            <button @click="submitSignIn" type="button">로그인</button>
           </div>
         </form>
 
         <div v-if="errorMessage.length > 0" class="error-messages">
+          <div>{{errorMessage}}</div>
         </div>
       </div>
       <div class="context-switch"></div>
@@ -30,7 +31,7 @@
 </template>
 
 <script>
-
+import { mapActions } from 'vuex'
 export default {
   name: 'Home',
   data () {
@@ -38,6 +39,21 @@ export default {
       username: '',
       password: '',
       errorMessage: ''
+    }
+  },
+  methods: {
+    ...mapActions(['signIn']),
+    submitSignIn () {
+      this.signIn({
+        username: this.username,
+        password: this.password
+      })
+        .then(() => {
+          this.$router.push({ name: 'Home' })
+        })
+        .catch(err => {
+          this.errorMessage = err.message
+        })
     }
   },
   components: {

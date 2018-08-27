@@ -1,8 +1,9 @@
 import api from '../../api/api'
+import Account from '../../model/Account'
 
 const state = {
   sign: {
-    account: {},
+    account: null,
     isSignedIn: false
   }
 }
@@ -13,13 +14,12 @@ const getters = {
   getAccount: state => {
     return state.sign.account
   },
-  getIsSignedIn: state => {
+  isSignedIn: state => {
     return state.sign.isSignedIn
   }
 }
 const mutations = {
   setAccount: (state, payload) => {
-    console.log('setAccount!')
     state.sign.account = payload
   },
   setIsSignedIn: (state, payload) => {
@@ -33,7 +33,7 @@ const mutations = {
 const actions = {
   syncSign: (context) => {
     if (!state.sign.isSignedIn) {
-      return api.getMyAccount()
+      return api.myAccount()
         .then(data => {
           context.commit('setAccount', data)
           context.commit('setIsSignedIn', true)
@@ -47,10 +47,18 @@ const actions = {
     }
   },
   signIn: (context, payload) => {
-
+    if (!payload.username) {
+      return Promise.reject(new Error('사용자명을 입력하세요.'))
+    }
+    if (!payload.password) {
+      return Promise.reject(new Error('비밀번호를 입력하세요.'))
+    }
+    return api.signIn(payload)
   },
   signUp: (context, payload) => {
-
+    const signUpForm = payload
+    let newAccount = new Account(null, signUpForm.username, signUpForm.password)
+    return api.signUp(newAccount)
   }
 }
 export default {
