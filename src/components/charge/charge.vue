@@ -3,10 +3,10 @@
     <global-header></global-header>
     <div class="center-block">
       <nav class="charge-nav">
-        <ul class="nav-tab-list">
-          <li @click="changeTabTo('charge-overview')" class="nav-tab">개요</li>
-          <li @click="changeTabTo('charge-pay')" class="nav-tab">결제하기</li>
-          <li @click="changeTabTo('charge-log')" class="nav-tab">결제이력</li>
+        <ul class="tab-list flex-con-row">
+          <li @click="changeTabTo('charge-overview')" class="tab flex-item pad-8 hover-pointer hover-bc-grey">개요</li>
+          <li @click="changeTabTo('charge-pay')" class="tab flex-item pad-8 hover-pointer hover-bc-grey">결제하기</li>
+          <li @click="changeTabTo('charge-log')" class="tab flex-item pad-8 hover-pointer hover-bc-grey">결제이력</li>
         </ul>
       </nav>
       <component :is="currentTab"></component>
@@ -42,5 +42,15 @@ export default {
 </script>
 
 <style scoped>
-
+  .flex-con-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .flex-item {
+    display: flex;
+  }
+  .hover-bc-grey:hover {
+    background-color: #ececec;
+  }
 </style>

@@ -16,7 +16,7 @@ h2 {
   font-size: 1.5em;
 }
 
-.psd-hover-cursor-pointer:hover {
+.hover-pointer:hover {
   cursor: pointer;
 }
 
@@ -28,3 +28,6 @@ a:link, a.visited, a:link:active, a:visited:active, a{
   text-decoration: none;
   color: #000;
 }
+
+.pad-8 { padding: 8px; }
+.pad-16 { padding: 16px; }

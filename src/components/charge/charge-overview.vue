@@ -18,7 +18,7 @@
     </div>
 
     <div class="activated-subscription">
-      <div class="state">적용중인 구독</div>
+      <div class="state">적용된 구독</div>
       <div class="period">6 개월</div>
       <div class="expiration-message">만료일까지 앱 사용이 가능합니다.</div>
     </div>
@@ -39,6 +39,8 @@
 </template>
 
 <script>
+import api from '../../api/api'
+import { mapGetters, mapActions } from 'vuex'
 export default {
   name: 'charge-overview',
   data () {
@@ -50,14 +52,23 @@ export default {
     }
   },
   methods: {
-    getOverview () {
-      console.log('') // api
+    ...mapActions(['syncSign']),
+    onCreated () {
+      // this.syncSign()
+      api.getSubscriptionOverview()
+        .then(data => {
+          console.log(data)
+        })
     }
   },
   computed: {
+    ...mapGetters(['getAccount']),
     isAppAvailable () {
       return false
     }
+  },
+  created () {
+    this.onCreated()
   }
 }
 </script>
