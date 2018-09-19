@@ -61,6 +61,61 @@ export default {
       .catch(err => {
         return Promise.reject(err)
       })
+  },
+  // subscription
+  getSubscriptionOverview () {
+    return axiosAppJson.get('/api/subscription/overview')
+      .then(res => {
+        return res.data
+      })
+      .catch(err => {
+        return Promise.reject(err)
+      })
+  },
+  requestSubscription (subscription) {
+    return axiosAppJson.post('/api/subscription/request', subscription)
+      .then(res => {
+        return res.data
+      })
+      .catch(err => {
+        return Promise.reject(err)
+      })
+  },
+  getSubscriptionChargeRatio () {
+    return axiosAppJson.get('/api/subscription/charge-ratio')
+      .then(res => {
+        return res.data
+      })
+      .catch(err => {
+        return Promise.reject(err)
+      })
+  },
+  getRequestedSubscriptionPage (pageParameter) {
+    return axiosAppJson.post('/api/subscription/manager/requested', pageParameter)
+      .then(res => {
+        return res.data
+      })
+      .catch(err => {
+        return Promise.reject(err)
+      })
+  },
+  permitSubscription (subscription) {
+    return axiosAppJson.post('/api/subscription/permit', subscription)
+      .then(res => {
+        return res.data
+      })
+      .catch(err => {
+        return Promise.reject(err)
+      })
+  },
+  appAuthenticate (username) {
+    return axiosAppJson.get('/api/subscription/authenticate/' + username)
+      .then(res => {
+        return res.data
+      })
+      .catch(err => {
+        return Promise.reject(err)
+      })
   }
-
+  // /subscription/authenticate/{username}
 }

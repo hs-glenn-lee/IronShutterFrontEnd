@@ -13,7 +13,7 @@
       <div class="menu-item flex-item psd-hover-cursor-pointer"><span>다운로드</span></div>
     </div>
     <div v-else class="menu-list flex-con-col">
-      <div class="menu-item flex-item psd-hover-cursor-pointer">
+      <div class="menu-item flex-item hover-pointer">
         <router-link :to="{ name: 'Charge' }">결제</router-link>
       </div>
       <div class="menu-item flex-item psd-hover-cursor-pointer"><span>계정관리</span></div>
@@ -28,6 +28,22 @@
 import { mapGetters } from 'vuex'
 export default {
   name: 'menu-of-global-header',
+  data () {
+    return {
+      isShowing: false
+    }
+  },
+  methods: {
+    toggleIsMenuShowing () {
+      this.isShowing = !this.isShowing
+    },
+    showMenu () {
+      this.isShowing = true
+    },
+    closeMenu () {
+      this.isShowing = false
+    }
+  },
   computed: {
     ...mapGetters(['isSignedIn'])
   },
@@ -48,8 +64,6 @@ export default {
   nav.menu {
     position: absolute;
     z-index: 1000;
-    top: 0px;
-    left: 0px;
 
     min-width: 240px;
     background-color: #fff;

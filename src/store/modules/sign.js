@@ -37,7 +37,7 @@ const actions = {
         .then(data => {
           context.commit('setAccount', data)
           context.commit('setIsSignedIn', true)
-          return data
+          return Promise.resolve(data)
         })
         .catch(errMsg => {
           return Promise.reject(errMsg)
