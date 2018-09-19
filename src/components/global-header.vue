@@ -1,17 +1,17 @@
 <template>
-  <header class="global-header">
+  <header class="global-header user-select-none">
     <div class="flex-con-row"><!-- if not signed-in -->
-      <div class="flex-item">
-        <div class="menu-icon psd-hover-cursor-pointer">menu</div>
+      <div class="flex-item item-mg-8">
+        <div @click="showMenu" class="menu-icon psd-hover-cursor-pointer">menu</div>
       </div>
       <div class="flex-item">
         <div class="logo">logo</div>
       </div>
       <div class="flex-con">
-        <div @click="goToSignIn" class="header-link psd-hover-cursor-pointer">로그인</div>
+        <div @click="goToSignIn" class="header-link item-mg-8 psd-hover-cursor-pointer">로그인</div>
       </div>
     </div>
-    <menu-of-global-header></menu-of-global-header>
+    <menu-of-global-header ref="$menuOfGlobalHeader"></menu-of-global-header>
   </header>
 </template>
 
@@ -25,6 +25,9 @@ export default {
     ...mapActions(['syncSign']),
     goToSignIn () {
       this.$router.push({ name: 'SignIn' })
+    },
+    showMenu () {
+      this.$refs.$menuOfGlobalHeader.showMenu()
     }
   },
   created () {
@@ -46,6 +49,9 @@ export default {
   }
   .flex-item {
     display:inline-block;
+  }
+  .item-mg-8 {
+    margin: 8px;
   }
   .logo {
     /* temp */

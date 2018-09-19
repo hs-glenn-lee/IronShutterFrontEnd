@@ -1,7 +1,14 @@
 <template>
   <div>
     <global-header></global-header>
-    <section>
+    <section class="center-block">
+      <div class="service-link">
+        <div>다운로드</div>
+        <div>회원가입</div>
+      </div>
+      <div class="intro-contents">
+        <div>서비스 소개 내용</div>
+      </div>
     </section>
     <common-footer></common-footer>
   </div>
