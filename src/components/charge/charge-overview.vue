@@ -31,18 +31,20 @@
 
     <div class="requested-subscription">
       <div class="state">입금 확인 중</div>
-      <div class="period">3 개월</div>
-      <div class="expiration-message">구독 금액의 입금을 확인중입니다.</div>
+      <subscription v-if="requested" :subscription="requested" :mode="'my'"></subscription>
     </div>
-
   </div>
 </template>
 
 <script>
 import api from '../../api/api'
 import { mapGetters, mapActions } from 'vuex'
+import SubscriptionComp from './subscription'
 export default {
   name: 'charge-overview',
+  components: {
+    'subscription': SubscriptionComp
+  },
   data () {
     return {
       state: 'loading', /* loading ready */

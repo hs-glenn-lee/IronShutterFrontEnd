@@ -21,7 +21,7 @@
         </div>
         <div class="requested-subscription">
           <div><span>신청된 구독</span></div>
-          <subscription-card v-if="requestedSubscription" :subscription="requestedSubscription"></subscription-card>
+          <subscription v-if="requestedSubscription" :subscription="requestedSubscription" :mode="'my'"></subscription>
         </div>
       </div>
 
@@ -34,13 +34,12 @@ import api from '../../api/api'
 import { mapActions } from 'vuex'
 import SubscriptionState from '../../model/SubscriptionState'
 import Subscription from '../../model/Subscription'
-import SubscriptionCard from './subscription-card'
+import SubscriptionComp from './subscription'
 
 export default {
   name: 'charge-paying',
   components: {
-    SubscriptionCard,
-    'subscription-card': SubscriptionCard
+    'subscription': SubscriptionComp
   },
   data () {
     return {
