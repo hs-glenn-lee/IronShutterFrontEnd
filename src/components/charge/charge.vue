@@ -9,7 +9,7 @@
           <li @click="changeTabTo('charge-log')" class="nav-tab psd-hover-cursor-pointer"><span>결제이력</span></li>
         </ul>
       </nav>
-      <component :is="currentTab"></component>
+      <component ref="$chargeChild" :is="currentTab"></component>
     </div>
   </div>
 </template>
@@ -30,6 +30,7 @@ export default {
   methods: {
     changeTabTo (compName, event) { // TODO debounce
       this.currentTab = compName
+      console.log(this.$refs.$chargeChild)
     }
   },
   components: {
