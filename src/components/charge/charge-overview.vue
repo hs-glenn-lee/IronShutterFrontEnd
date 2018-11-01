@@ -18,20 +18,18 @@
     </div>
 
     <div class="activated-subscription">
-      <div class="state">적용된 구독</div>
-      <div class="period">6 개월</div>
-      <div class="expiration-message">만료일까지 앱 사용이 가능합니다.</div>
+      <div class="state">활성화된 구독</div>
+      <subscription v-if="activatedSubscription" :subscription="activatedSubscription" :mode="'my'"></subscription>
     </div>
 
     <div class="permitted-subscription">
-      <div class="state">적용 대기</div>
-      <div class="period">3 개월</div>
-      <div class="expiration-message">만료일까지 앱 사용이 가능합니다.</div>
+      <div class="state">승인된 구독</div>
+      <subscription v-if="permittedSubscription" :subscription="permittedSubscription" :mode="'my'"></subscription>
     </div>
 
     <div class="requested-subscription">
       <div class="state">입금 확인 중</div>
-      <subscription v-if="requested" :subscription="requested" :mode="'my'"></subscription>
+      <subscription v-if="requestedSubscription" :subscription="requestedSubscription" :mode="'my'"></subscription>
     </div>
   </div>
 </template>
@@ -40,6 +38,7 @@
 import api from '../../api/api'
 import { mapGetters, mapActions } from 'vuex'
 import SubscriptionComp from './subscription'
+import SubscriptionState from '../../model/SubscriptionState'
 export default {
   name: 'charge-overview',
   components: {
@@ -48,18 +47,30 @@ export default {
   data () {
     return {
       state: 'loading', /* loading ready */
-      activated: null,
-      permitted: null,
-      requested: null
+      activatedSubscription: null,
+      permittedSubscription: null,
+      requestedSubscription: null
     }
   },
   methods: {
     ...mapActions(['syncSign']),
     onCreated () {
       // this.syncSign()
+      // api.appAuthenticate
+
       api.getSubscriptionOverview()
         .then(data => {
-          console.log(data)
+          data.forEach(el => {
+            if (el.state === SubscriptionState.ACTIVATED) {
+              this.activatedSubscription = el
+            }
+            if (el.state === SubscriptionState.PERMITTED) {
+              this.permittedSubscription = el
+            }
+            if (el.state === SubscriptionState.REQUESTED) {
+              this.requestedSubscription = el
+            }
+          })
         })
     }
   },

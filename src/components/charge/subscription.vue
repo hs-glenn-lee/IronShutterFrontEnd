@@ -2,16 +2,15 @@
   <div class="subscription">
     <div v-if="mode=='my'">
       <div class="header row flex-con-row">
-        <span class="period" style="margin-right: 16px;">
+        <span class="period" style="margin-right: 8px;">
           <span>{{subscription.periodAmount}} {{decodedPeriodUnit}}</span>
         </span>
-
         <span class="state wrapped">{{decodedState}}</span>
       </div>
 
       <div class="subscriber row">
         <span class="user-select-none label">구독자 :</span>
-        <span class="">{{subscription.subscriber.username}}</span>
+        <span class="bold">{{subscription.subscriber.username}}</span>
       </div>
 
       <div class="charge-amount row">
@@ -65,7 +64,7 @@ export default {
   name: 'subscription',
   props: {
     subscription: Object,
-    mode: Object // my, my-short, manager, manager-short
+    mode: String // my, my-short, manager, manager-short
   },
   data () {
     return {
@@ -144,8 +143,7 @@ export default {
   span.wrapped {
     display: inline-block;
     padding: 4px;
-    border: 1px solid black;
-    border-radius: 4px;
+    border: 1px solid;
   }
 
   .period {
@@ -155,5 +153,9 @@ export default {
   span.label {
     display: inline-block;
     width: 100px;
+  }
+
+  .bold {
+    font-weight: bold;
   }
 </style>

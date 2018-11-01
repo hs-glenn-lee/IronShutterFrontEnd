@@ -5,7 +5,7 @@
         <div>
           <span>신청자</span><span>{{subs.subscriber.username}}</span>
         </div>
-        <subscription-card :subscription="subs"></subscription-card>
+        <subscription :subscription="subs" :mode="'manager'"></subscription>
         <button @click="permitSubscription(subs)" type="button">승인</button>
       </li>
     </ul>
@@ -15,11 +15,11 @@
 <script>
 import api from '../../api/api'
 import PageParameter from '../../model/PageParameter'
-import SubscriptionCardComp from './subscription-card'
+import SubscriptionComp from './subscription'
 export default {
   name: 'charge-manager-test',
   components: {
-    'subscription-card': SubscriptionCardComp
+    'subscription': SubscriptionComp
   },
   data () {
     return {
