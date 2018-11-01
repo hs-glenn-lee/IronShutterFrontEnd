@@ -1,16 +1,23 @@
 <template>
   <nav ref="$menu" class="menu show">
 
-    <div class="menu-header">
-      <h1><span>바로가기</span></h1>
+    <div class="menu-header context-switch">
+      <h1>
+        <span>바로가기</span>
+      </h1>
       <button @click="hideMenu" class="close-menu-button generic" type="button">닫기</button>
     </div>
 
     <div v-if="!isSignedIn" class="menu-list flex-con-col"><!--if not signed in -->
+      <div class="menu-item flex-item hover-pointer context-switch">
+        <span>로그인</span>
+      </div>
       <div class="menu-item flex-item hover-pointer">
         <span>서비스 소개</span>
       </div>
-      <div class="menu-item flex-item hover-pointer"><span>다운로드</span></div>
+      <div class="menu-item flex-item hover-pointer">
+        <span>다운로드</span>
+      </div>
     </div>
     <div v-else class="menu-list flex-con-col">
       <div class="menu-item flex-item hover-pointer">
@@ -57,7 +64,7 @@ export default {
 
     min-width: 240px;
     background-color: #fff;
-    padding: 4px 0px 4px 0px;
+    padding: 4px 0px 2px 0px;
     box-shadow: 8px 8px 16px 0 rgba(0,0,0,.2);
   }
 
@@ -68,8 +75,10 @@ export default {
     justify-content: space-between;
 
     padding: 8px;
+  }
+
+  .context-switch {
     box-shadow: 0 2px 2px -2px rgba(0,0,0,.2);
-    margin-bottom: 4px;
   }
 
   h1 {

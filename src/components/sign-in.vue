@@ -2,6 +2,9 @@
   <div class="sign-in">
     <div class="flex-con-col">
       <div class="flex-item">
+        <div>큰 로고</div>
+      </div>
+      <div class="flex-item">
         <h1>로그인</h1>
       </div>
       <div class="flex-item">
@@ -13,7 +16,7 @@
             <input v-model="password" type="password" placeholder="비밀번호">
           </div>
           <div class="flex-con-col">
-            <button @click="submitSignIn" type="button">로그인</button>
+            <button @click="submitSignIn" class="generic" type="button">로그인</button>
           </div>
         </form>
 
@@ -27,11 +30,13 @@
         <p><router-link :to="{ name: 'SignUp' }">계정만들기</router-link></p>
       </div>
     </div>
+    <common-footer></common-footer>
   </div>
 </template>
 
 <script>
 import { mapActions } from 'vuex'
+import commonFooterComp from './common-footer'
 export default {
   name: 'Home',
   data () {
@@ -57,7 +62,7 @@ export default {
     }
   },
   components: {
-
+    'common-footer': commonFooterComp
   }
 }
 

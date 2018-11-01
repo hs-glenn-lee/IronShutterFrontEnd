@@ -2,13 +2,13 @@
   <header class="global-header user-select-none">
     <div class="flex-con-row"><!-- if not signed-in -->
       <div class="flex-item item-mg-8">
-        <div @click="showMenu" class="menu-icon psd-hover-cursor-pointer">menu</div>
+        <div @click="showMenu" class="menu-icon psd-hover-cursor-pointer">GOTO</div>
       </div>
       <div class="flex-item">
         <div class="logo">logo</div>
       </div>
       <div class="flex-con">
-        <div @click="goToSignIn" class="header-link item-mg-8 psd-hover-cursor-pointer">로그인</div>
+        <div @click="goToSignIn" class="header-link item-mg-8 psd-hover-cursor-pointer">로그인(로그인후 사람모양 아이콘)</div>
       </div>
     </div>
     <menu-of-global-header ref="$menuOfGlobalHeader"></menu-of-global-header>
@@ -38,7 +38,7 @@ export default {
 
 <style scoped>
   header {
-
+    border-bottom: 1px solid #e5e5e5;
   }
 
   .flex-con-row {

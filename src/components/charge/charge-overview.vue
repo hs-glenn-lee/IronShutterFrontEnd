@@ -1,16 +1,16 @@
 <template>
   <div class="charge-overview">
-    <div v-if="isAppAvailable" class="app-availability">
+    <div v-if="isAppAvailable" class="app-availability" style="background-color: green;">
       <div class="result-symbol">
-        <span>O</span>
+        <span>O(아이콘)</span>
       </div>
       <div class="result-message">
         <span>앱 사용이 가능합니다.</span>
       </div>
     </div>
-    <div v-else class="app-availability">
+    <div v-else class="app-availability" style="background-color: red;">
       <div class="result-symbol">
-        <span>X</span>
+        <span>X(아이콘)</span>
       </div>
       <div class="result-message">
         <span>앱 사용이 불가능합니다.</span>

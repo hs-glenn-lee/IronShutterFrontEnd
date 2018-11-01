@@ -2,6 +2,8 @@
   <div class="charge">
     <global-header></global-header>
     <div class="center-block">
+      <h1>결제 pricing</h1>
+      <p>결제가 처음이신가요? (물음표 아이콘-링크) (화살표아이콘, 카드 아이콘..)</p>
       <nav class="charge-nav">
         <ul class="nav-tab-list">
           <li @click="changeTabTo('charge-overview')" class="nav-tab psd-hover-cursor-pointer"><span>개요</span></li>

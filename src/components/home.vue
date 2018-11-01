@@ -2,12 +2,13 @@
   <div>
     <global-header></global-header>
     <section class="center-block">
-      <div class="service-link">
-        <div>다운로드</div>
-        <div>회원가입</div>
-      </div>
       <div class="intro-contents">
-        <div>서비스 소개 내용</div>
+        <div style="height: 600px; background-color: #ececec;">
+          <p>home.. 메인 페이지</p>
+          <p>서비스 소개 내용</p>
+          <p>이미지 등</p>
+          <p>가로 최대 1080</p>
+        </div>
       </div>
     </section>
     <common-footer></common-footer>

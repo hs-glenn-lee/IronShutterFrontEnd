@@ -2,6 +2,9 @@
   <div class="sign-up">
     <div class="flex-con-col">
       <div class="flex-item">
+        <div>큰 로고</div>
+      </div>
+      <div class="flex-item">
         <h1>계정생성</h1>
       </div>
       <div class="flex-item">
@@ -23,8 +26,8 @@
       </div>
 
       <div class="flex-con-col">
-        <span>{{isValid}}</span>
-        <button @click="submitSignUpForm" type="button">계정생성</button>
+        <span>{{isValid}}<span>트루 펄스 아이콘</span></span>
+        <button @click="submitSignUpForm" class="generic" type="button">계정생성</button>
       </div>
 
       <div class="context-switch"></div>
@@ -33,12 +36,15 @@
         <p><router-link :to="{ name: 'SignIn' }">로그인</router-link></p>
       </div>
     </div>
+    <common-footer></common-footer>
   </div>
 </template>
 
 <script>
 import validator from '../validator/validator'
 import { mapActions } from 'vuex'
+import commonFooterComp from './common-footer'
+
 export default {
   name: 'Home',
   data () {
@@ -73,7 +79,7 @@ export default {
     }
   },
   components: {
-
+    'common-footer': commonFooterComp
   },
   watch: {
     signUpForm: {
