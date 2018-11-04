@@ -38,7 +38,7 @@
 
 <script>
 import { mapActions } from 'vuex'
-import commonFooterComp from '../common-footer'
+import commonFooterComp from '../footers/common-footer'
 export default {
   name: 'Home',
   data () {

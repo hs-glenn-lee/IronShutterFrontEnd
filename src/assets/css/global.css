@@ -1,9 +1,17 @@
 @import url("./reset.css");
 @import url("./colors.css");
-html, body {
+@import url("./fonts/nanumbrush/font-nanumbrush.css");
+@import url("./fonts/nanum-gothic/font-nanumgothic.css");
+
+html {
   font-size: 16px;
 }
-
+body {
+  font-family: NanumGothic;
+  -webkit-font-smoothing: antialiased;
+  display: flex;
+  flex-direction: column;
+}
 .center-block {
   max-width: 1080px;
   margin: auto;

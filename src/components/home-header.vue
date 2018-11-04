@@ -128,7 +128,7 @@ export default {
 
   .c-nav {
     left: -.05rem;
-    top: 2.5rem;
+    top: 34px;
     margin-left: 0;
     max-width: none;
     border: 1px solid #ebebeb;
