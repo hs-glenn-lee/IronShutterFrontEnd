@@ -1,13 +1,20 @@
 <template>
   <div>
-    <global-header></global-header>
-    <section class="center-block">
-      <div class="intro-contents">
-        <div style="height: 600px; background-color: #ececec;">
+    <home-header></home-header>
+    <section style="height: 600px; background-color: #ececec;">
+      <div class="center-block" >
+        <div>
           <p>home.. 메인 페이지</p>
           <p>서비스 소개 내용</p>
           <p>이미지 등</p>
           <p>가로 최대 1080</p>
+        </div>
+      </div>
+    </section>
+    <section style="height: 600px; background-color: #fff;">
+      <div class="center-block" >
+        <div>
+          <p>시작하기</p>
         </div>
       </div>
     </section>
@@ -16,13 +23,13 @@
 </template>
 
 <script>
-import GlobalHeaderComp from './global-header'
+import HomeHeaderComp from './home-header'
 import CommonFooterComp from './common-footer'
 export default {
   name: 'Home',
   components: {
     'common-footer': CommonFooterComp,
-    'global-header': GlobalHeaderComp
+    'home-header': HomeHeaderComp
   }
 }
 </script>

@@ -41,9 +41,9 @@
 </template>
 
 <script>
-import validator from '../validator/validator'
+import validator from '../../validator/validator'
 import { mapActions } from 'vuex'
-import commonFooterComp from './common-footer'
+import commonFooterComp from '../common-footer'
 
 export default {
   name: 'Home',

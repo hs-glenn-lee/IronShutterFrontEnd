@@ -24,7 +24,7 @@
         </div>
       </div>
     </div>
-    <menu-of-global-header ref="$menuOfGlobalHeader"></menu-of-global-header>
+    <!--<menu-of-global-header ref="$menuOfGlobalHeader"></menu-of-global-header>-->
   </header>
 </template>
 

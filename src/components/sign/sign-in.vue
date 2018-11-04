@@ -1,9 +1,11 @@
 <template>
   <div class="sign-in">
     <div class="flex-con-col">
-      <div class="flex-item">
-        <div>큰 로고</div>
-      </div>
+      <header class="flex-item">
+        <div class="logo">
+          <img src="../../assets/images/logo-banner.png"/>
+        </div>
+      </header>
       <div class="flex-item">
         <h1>로그인</h1>
       </div>
@@ -36,7 +38,7 @@
 
 <script>
 import { mapActions } from 'vuex'
-import commonFooterComp from './common-footer'
+import commonFooterComp from '../common-footer'
 export default {
   name: 'Home',
   data () {
@@ -76,6 +78,12 @@ export default {
   }
   .flex-item {
     display: flex;
+  }
+
+  header.flex-item {
+    height: 70px;
+    width: 100%;
+    border-bottom: 1px solid var(--context-border-color);
   }
 
   input[type="text"], input[type="password"] {
