@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import GlobalHeaderComp from '../home-header'
+import GlobalHeaderComp from '../headers/home-header'
 import ChargeOverviewComp from './charge-overview'
 import ChargePayComp from './charge-pay'
 import ChargePayLogComp from './charge-log'
