@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import HomeHeaderComp from './home-header'
+import HomeHeaderComp from './headers/home-header'
 import CommonFooterComp from './footers/common-footer'
 import RecapFooterComp from './footers/recap-footer'
 

@@ -1,12 +1,7 @@
 <template>
   <div class="sign-in">
     <div class="flex-con-col main">
-      <header class="flex-con-col">
-        <div class="logo">
-          <img src="../../assets/images/logo-banner.png"/>
-        </div>
-      </header>
-
+      <simple-header></simple-header>
       <div class="flex-con-col">
         <div class="sign-in-box flex-con-col">
           <div class="flex-con-col">
@@ -47,13 +42,16 @@
       </div>
 
     </div>
+    <recap-footer></recap-footer>
     <common-footer></common-footer>
   </div>
 </template>
 
 <script>
 import { mapActions } from 'vuex'
+import simpleHeaderComp from '../headers/simple-header'
 import commonFooterComp from '../footers/common-footer'
+import recapFooterComp from '../footers/recap-footer'
 export default {
   name: 'Home',
   data () {
@@ -79,17 +77,30 @@ export default {
     }
   },
   components: {
-    'common-footer': commonFooterComp
+    'common-footer': commonFooterComp,
+    'recap-footer': recapFooterComp,
+    'simple-header': simpleHeaderComp
   }
 }
 
 </script>
 
 <style scoped>
+  div.round-box {
+    border-radius: 8px;
+    border: 1px solid var(--context-border-color);
+    box-shadow: 0 1px 0 rgba(0,0,0,.25);
+    background-color: #fff;
+    width: 500px;
+    margin-top: 16px;
+  }
   .flex-con-col {
     display:flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+
+    padding: 8px 0;
   }
 
   div.main {
@@ -127,7 +138,9 @@ export default {
 
   button[type="button"] {
     display: inline-block;
-    background-color: #ececec;
+    background-color: var(--blue-button-color);
+    width: 320px;
+    font-size: 1.2em;
     border: 1px solid #999999;
     border-radius: 5px;
     font-size: 1.2em;

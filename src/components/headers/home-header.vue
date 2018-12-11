@@ -4,7 +4,7 @@
       <div class="h-nav-item-con h-inh">
         <div class="h-nav-item h-inh">
           <div class="logo">
-            <img src="../assets/images/logo-banner.png"/>
+            <img src="../../assets/images/logo-banner.png"/>
           </div>
           <ul class="h-nav-btn-list">
             <li @mouseover="cNavOnMouseover" @mouseout="cNavOnMouseout" class="h-nav-btn">
