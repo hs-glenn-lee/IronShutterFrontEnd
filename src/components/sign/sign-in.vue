@@ -1,7 +1,7 @@
 <template>
   <div class="sign-in">
+    <simple-header></simple-header>
     <div class="flex-con-col main">
-      <simple-header></simple-header>
       <div class="flex-con-col">
         <div class="sign-in-box flex-con-col">
           <div class="flex-con-col">
@@ -42,7 +42,6 @@
       </div>
 
     </div>
-    <recap-footer></recap-footer>
     <common-footer></common-footer>
   </div>
 </template>
@@ -86,20 +85,11 @@ export default {
 </script>
 
 <style scoped>
-  div.round-box {
-    border-radius: 8px;
-    border: 1px solid var(--context-border-color);
-    box-shadow: 0 1px 0 rgba(0,0,0,.25);
-    background-color: #fff;
-    width: 500px;
-    margin-top: 16px;
-  }
+
   .flex-con-col {
     display:flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-
     padding: 8px 0;
   }
 
@@ -107,12 +97,12 @@ export default {
     min-height: 980px;
   }
 
-  header {
+/*  header {
     height: 70px;
     width: 100%;
     border-bottom: 1px solid var(--context-border-color);
     margin-bottom: 32px;
-  }
+  }*/
 
   div.sign-in-box {
     min-width: 400px;
@@ -138,13 +128,13 @@ export default {
 
   button[type="button"] {
     display: inline-block;
+    min-width: 140px;
     background-color: var(--blue-button-color);
-    width: 320px;
     font-size: 1.2em;
     border: 1px solid #999999;
     border-radius: 5px;
     font-size: 1.2em;
-    color: #000;
+    color: #fff;
     padding: 0.3em 0.3em 0.3em 0.3em;
     margin: 8px 0;
   }
