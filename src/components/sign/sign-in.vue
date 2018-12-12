@@ -50,7 +50,7 @@
 import { mapActions } from 'vuex'
 import simpleHeaderComp from '../headers/simple-header'
 import commonFooterComp from '../footers/common-footer'
-import recapFooterComp from '../footers/recap-footer'
+
 export default {
   name: 'Home',
   data () {
@@ -77,7 +77,6 @@ export default {
   },
   components: {
     'common-footer': commonFooterComp,
-    'recap-footer': recapFooterComp,
     'simple-header': simpleHeaderComp
   }
 }
@@ -85,24 +84,15 @@ export default {
 </script>
 
 <style scoped>
-
   .flex-con-col {
     display:flex;
     flex-direction: column;
     align-items: center;
-    padding: 8px 0;
   }
 
   div.main {
     min-height: 980px;
   }
-
-/*  header {
-    height: 70px;
-    width: 100%;
-    border-bottom: 1px solid var(--context-border-color);
-    margin-bottom: 32px;
-  }*/
 
   div.sign-in-box {
     min-width: 400px;
@@ -149,7 +139,7 @@ export default {
     text-align: center;
   }
   div.error-messages > span {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   .guide a {

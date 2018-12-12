@@ -6,6 +6,7 @@ import SignUpComp from '../components/sign/sign-up.vue'
 import ChargeComp from '../components/charge/charge.vue'
 import ChargeManagerTestComp from '../components/charge/charge-manager-test'
 import ChargeAppAuthTestComp from '../components/charge/charge-app-auth-test'
+import PricingComp from '../components/pricing/pricing'
 
 Vue.use(Router)
 
@@ -41,6 +42,11 @@ export default new Router({
       path: '/charge/app-auth-test',
       name: 'ChargeAppAuthTest',
       component: ChargeAppAuthTestComp
+    },
+    {
+      path: '/pricing',
+      name: 'Pricing',
+      component: PricingComp
     }
   ]
 })
