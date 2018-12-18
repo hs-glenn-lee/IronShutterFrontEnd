@@ -1,8 +1,7 @@
 export default class Account {
-  constructor (id, username, password, accountSetting) {
+  constructor (id, username, email) {
     this.id = id
     this.username = username
-    this.password = password
-    this.accountSetting = accountSetting
+    this.email = email;
   }
 }

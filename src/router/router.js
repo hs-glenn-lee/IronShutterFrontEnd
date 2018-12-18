@@ -7,6 +7,7 @@ import ChargeComp from '../components/charge/charge.vue'
 import ChargeManagerTestComp from '../components/charge/charge-manager-test'
 import ChargeAppAuthTestComp from '../components/charge/charge-app-auth-test'
 import PricingComp from '../components/pricing/pricing'
+import DownloadComp from '../components/download/download'
 
 Vue.use(Router)
 
@@ -47,6 +48,11 @@ export default new Router({
       path: '/pricing',
       name: 'Pricing',
       component: PricingComp
+    },
+    {
+      path: '/download',
+      name: 'Download',
+      component: DownloadComp
     }
   ]
 })

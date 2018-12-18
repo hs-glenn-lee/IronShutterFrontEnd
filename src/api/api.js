@@ -35,8 +35,8 @@ export default {
       })
   },
 
-  signUp (accountSetting) {
-    return axiosAppJson.put('/api/sign-up', accountSetting)
+  signUp (signUpForm) {
+    return axiosAppJson.put('/api/sign-up', signUpForm)
       .then(res => {
         return res
       })
@@ -44,12 +44,12 @@ export default {
         return Promise.reject(err)
       })
   },
-  isUniqueNewUsername (username) {
-    return axiosAppJson.post('/api/isUniqueNewUsername', {
+  isOccupiedUsername (username) {
+    return axiosAppJson.post('/api/isOccupiedUsername', {
       'username': username
     })
       .then(res => {
-        return res.data
+        return res.data.isOccupiedUsername
       })
       .catch(err => console.log(err))
   },

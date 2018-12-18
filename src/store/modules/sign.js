@@ -1,5 +1,4 @@
 import api from '../../api/api'
-import Account from '../../model/Account'
 
 const state = {
   sign: {
@@ -57,8 +56,7 @@ const actions = {
   },
   signUp: (context, payload) => {
     const signUpForm = payload
-    let newAccount = new Account(null, signUpForm.username, signUpForm.password)
-    return api.signUp(newAccount)
+    return api.signUp(signUpForm)
   }
 }
 export default {

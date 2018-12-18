@@ -39,9 +39,9 @@ export default {
 
           return Promise.reject(fail)
         } else {
-          return api.isUniqueNewUsername(signUpForm.username)
-            .then(ret => {
-              if (ret) {
+          return api.isOccupiedUsername(signUpForm.username)
+            .then(isOccupiedUsername => {
+              if (!isOccupiedUsername) {
                 return Promise.resolve('다되었습니다! 계정생성 버튼을 눌러주세요')
               } else {
                 let fail = []
