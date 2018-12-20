@@ -33,10 +33,10 @@ const actions = {
   syncSign: (context) => {
     if (!state.sign.isSignedIn) {
       return api.myAccount()
-        .then(data => {
-          context.commit('setAccount', data)
+        .then(account => {
+          context.commit('setAccount', account)
           context.commit('setIsSignedIn', true)
-          return Promise.resolve(data)
+          return Promise.resolve(account)
         })
         .catch(errMsg => {
           return Promise.reject(errMsg)
@@ -53,6 +53,14 @@ const actions = {
       return Promise.reject(new Error('비밀번호를 입력하세요.'))
     }
     return api.signIn(payload)
+      .then(account => {
+        context.commit('setAccount', account)
+        context.commit('setIsSignedIn', true)
+        return Promise.resolve(account)
+      })
+      .catch(errMsg => {
+        return Promise.reject(errMsg)
+      })
   },
   signUp: (context, payload) => {
     const signUpForm = payload

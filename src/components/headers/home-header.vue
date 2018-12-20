@@ -37,13 +37,20 @@
         </div>
 
         <div class="h-nav-item-con h-inh">
-          <div class="h-nav-item">
-            <ul class="h-nav-btn-list">
-              <li @mouseover="cNavOnMouseover" @mouseout="cNavOnMouseout" @click="goToSignIn" class="h-nav-btn">
-                <span class="h-nav-btn-label">로그인</span>
-              </li>
-            </ul>
+          <div class="h-nav-item" v-if="isSignedIn">
+              <div class="icon-cont" @click="goToSignIn">
+                <img style="height: 32px;" src="../../assets/images/icon-person.png"/>
+                <span style="display: inline-block; font-size: 16px; font-weight: bold; padding: 6px;">{{getAccount.username}}</span>
+              </div>
           </div>
+          <div class="h-nav-item" v-else>
+              <ul class="h-nav-btn-list">
+                <li @click="goToSignIn" class="h-nav-btn">
+                  <span class="h-nav-btn-label">로그인</span>
+                </li>
+              </ul>
+          </div>
+
         </div>
       </div>
     </nav>
@@ -52,11 +59,14 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
   name: 'home-header',
   components: {},
+  computed: {
+    ...mapGetters(['isSignedIn', 'getAccount'])
+  },
   methods: {
     ...mapActions(['syncSign']),
     cNavOnMouseover (event) {
@@ -73,7 +83,7 @@ export default {
     }
   },
   created () {
-    this.syncSign()
+
   }
 }
 </script>
@@ -186,6 +196,19 @@ export default {
 
   .h-inh {
     height: inherit;
+  }
+
+  .icon-cont {
+    display:flex;  flex-direction: row; align-items: center;
+    padding: 2px 4px;
+    border-radius: 8px;
+    border: 1px solid #fff;
+  }
+
+  .icon-cont:hover {
+    cursor: pointer;
+    border: 1px solid var(--grey-bg-color);
+    box-shadow: 0 0 2px #4a4a4a;
   }
 
 </style>
