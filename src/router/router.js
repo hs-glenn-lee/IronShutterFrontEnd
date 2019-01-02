@@ -8,6 +8,7 @@ import ChargeManagerTestComp from '../components/charge/charge-manager-test'
 import ChargeAppAuthTestComp from '../components/charge/charge-app-auth-test'
 import PricingComp from '../components/pricing/pricing'
 import DownloadComp from '../components/download/download'
+import HelpCenterComp from '../components/help-center/help-center'
 
 Vue.use(Router)
 
@@ -53,6 +54,11 @@ export default new Router({
       path: '/download',
       name: 'Download',
       component: DownloadComp
+    },
+    {
+      path: '/help-center',
+      name: 'HelpCenter',
+      component: HelpCenterComp
     }
   ]
 })

@@ -24,8 +24,8 @@
                 <nav class="c-nav">
                   <small class="c-nav--heading">(가칭)과 함께해요.</small>
                   <div class="c-nav-column">
-                    <router-link :to="{ name: 'Home' }"><span>다운로드</span></router-link>
-                    <router-link :to="{ name: 'Home' }"><span>고객센터</span></router-link>
+                    <router-link :to="{ name: 'Download' }"><span>다운로드</span></router-link>
+                    <router-link :to="{ name: 'HelpCenter' }"><span>고객센터</span></router-link>
                   </div>
                 </nav>
               </span>
