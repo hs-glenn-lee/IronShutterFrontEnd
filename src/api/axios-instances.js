@@ -11,12 +11,12 @@ axiosAppJson.interceptors.response.use(function (response) {
   /* var resolvedError = resolveCustomServerException(error); */
   return Promise.reject(error)
 })
-/*
+
 
 const axiosMultipart = axios.create({
    baseURL: 'http://localhost:8081'
 })
 axiosMultipart.defaults.headers.post['Content-Type'] = 'multipart/form-data'
-*/
 
-export { axiosAppJson }
+
+export { axiosAppJson, axiosMultipart }

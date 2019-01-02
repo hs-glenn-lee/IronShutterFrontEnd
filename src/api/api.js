@@ -1,4 +1,4 @@
-import { axiosAppJson } from './axios-instances'
+import { axiosAppJson, axiosMultipart } from './axios-instances'
 
 export default {
   signIn (payload) {
@@ -116,6 +116,16 @@ export default {
       .catch(err => {
         return Promise.reject(err)
       })
-  }
+  },
   // /subscription/authenticate/{username}
+  uploadAppFile(formData) {
+    return axiosMultipart.post('/upload-file', formData)
+      .then( res => {
+        return res.data;
+      })
+      .catch( err => {
+        console.error(err);
+        throw err;
+      })
+  }
 }
