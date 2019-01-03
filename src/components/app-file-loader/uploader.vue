@@ -1,6 +1,8 @@
 <template>
   <div class="app-file-uploader">
-    <form enctype="multipart/form-data" novalidate v-if="isInitial || isSaving">
+<!--
+
+    <form class="drag-and-drop-multipart-file-form" enctype="multipart/form-data" novalidate v-if="isInitial || isSaving">
       <h1>Upload images</h1>
       <div class="dropbox">
         <input type="file" multiple :name="uploadFieldName" :disabled="isSaving" @change="filesChange($event.target.name, $event.target.files); fileCount = $event.target.files.length"
@@ -13,11 +15,18 @@
         </p>
       </div>
     </form>
+-->
+    <form class="multipart-file-form" enctype="multipart/form-data" novalidate v-if="isInitial || isSaving">
+      <input type="file" :name="uploadFieldName" :disabled="isSaving" @change="fileChange($event.target.name, $event.target.files); fileCount = $event.target.files.length"
+             accept="image/*" class="input-file">
+    </form>
+
   </div>
 </template>
 
 <script>
 const STATUS_INITIAL = 0, STATUS_SAVING = 1, STATUS_SUCCESS = 2, STATUS_FAILED = 3;
+import api from '../../api/api'
 
 export default {
   name: 'appFileUploader',
@@ -26,10 +35,10 @@ export default {
   },
   data() {
     return {
-      uploadedFiles: [],
+      uploadedFile: null,
       uploadError: null,
       currentStatus: null,
-      uploadFieldName: 'photos'
+      uploadFieldName: 'files'
     }
   },
   computed: {
@@ -57,17 +66,17 @@ export default {
       // upload data to the server
       this.currentStatus = STATUS_SAVING;
 
-      upload(formData)
-        .then(x => {
+      api.uploadAppFile(formData)
+        .catch( err => {
+          this.uploadError = err.response;
+          this.currentStatus = STATUS_FAILED;
+        })
+        .then( data => {
           this.uploadedFiles = [].concat(x);
           this.currentStatus = STATUS_SUCCESS;
         })
-        .catch(err => {
-          this.uploadError = err.response;
-          this.currentStatus = STATUS_FAILED;
-        });
     },
-    filesChange(fieldName, fileList) {
+    fileChange(fieldName, fileList) {
       // handle file changes
       const formData = new FormData();
 
@@ -88,21 +97,7 @@ export default {
     this.reset();
   }
   /*
-    upload () {
-      // var formData = new FormData();
-      var targetFile = blobInfo.blob();
-      validator.validate('MaxUploadImageSize',targetFile);
-      formData.append('file', blobInfo.blob(), blobInfo.filename());
 
-      var article = vm.getArticle;
-      api.uploadArticleImage(formData, article.id)
-        .catch( err => {
-          failure(err);
-        })
-        .then( data => {
-          success(data.location);
-        })
-    }
   */
 }
 </script>
