@@ -118,14 +118,14 @@ export default {
       })
   },
   // /subscription/authenticate/{username}
-  uploadAppFile(formData) {
-    return axiosMultipart.post('/upload-file', formData)
-      .then( res => {
-        return res.data;
+  uploadAppFile (formData) {
+    return axiosMultipart.post('/api/upload-file', formData)
+      .then(res => {
+        return res.data
       })
-      .catch( err => {
-        console.error(err);
-        throw err;
+      .catch(err => {
+        console.error(err)
+        throw err
       })
   }
 }
